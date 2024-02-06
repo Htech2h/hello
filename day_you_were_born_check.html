@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center"><span>day of week you were born checker</span></h1> <br>
+    <br>
+    
+   <div  class="form"> <form action="post">
+            <input type="tel" name="day" id="day" placeholder="dd" required> day
+            <input type="tel" name="month" id="month" placeholder="mm" required> month
+            <input type="tel" name="year" ID="year" placeholder="yyyy" required> year<br>
+            <input onclick="get_day()" type="submit" value="submit">
+ 
+         </form>
+        </div> <br>
+        <br>
+    
+
+<script>
+
+
+function get_day(year,month,day){
+    var year = parseInt(document.getElementById("year").value);
+    var month = parseInt(document.getElementById("month").value);
+    var day = parseInt(document.getElementById("day").value);
+
+    let list1 = ["sunday","monday","tuesday","wednessday","thursday","friday","sat"];
+    var d = new Date(year,month,day);
+    var x = d.getDay();
+    alert(list1[x-2]);
+
+      
+}
+console.log(get_day());
+
+
+
+</script>
+<style>
+
+    .form{
+        background-color: greenyellow;
+        border: 1px solid green;
+        padding: 4px;
+        width: 300px;
+        height: 190px;
+        margin: auto;
+        border-radius: 15px;
+
+    }
+
+    h1 span{
+        border: 4px dashed black;
+        padding: 10px;
+        color: blue;
+        border-radius: 10px;
+        margin-bottom: 100px;
+        
+    }
+    body{
+        background-color: azure;
+    }
+    .sec{
+        border-collapse: collapse;
+        width: 100%;
+        height: 10%;
+        text-align: center;
+        background-color: white;
+    }
+    td, th{
+        padding: 5px;
+    }
+    th{
+        background-color: gray;
+    }
+    .button{
+        border: 1px solid greenyellow;
+    }
+    input{
+        border: 1px solid green;
+        width: 95%;
+        padding: 5px;
+    }
+    input[type='submit']{
+        border-radius: 10px;
+        color: black;
+
+    }
+    input[type='submit']:hover{
+        background-color: greenyellow;
+        text-decoration: line-through;
+    }
+    
+
+</style>
+<table class="sec" border="1px">
+   <tr> <th>name</th>
+    <th>experience</th>
+</tr>
+<tr><td>Htech2</td>
+<td >python,javascript,HTML,CSS,java</td>
+</tr>
+</table>
+<footer><p>copyright &copy; RHT</p></footer>
+</body>
+</html>

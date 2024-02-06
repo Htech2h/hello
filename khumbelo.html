@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chicken Lovers Restaurant</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="head" align="center"><span>Chicken Lovers Restaurant</span></h1> <br />
+      <br/>
+
+    </header>
+    <main>
+      <section>
+        <h4>Welcome to flwaless Chicken Lovers </h4>
+        <p>At Chicken Lovers Restaurant, we serve up the most delicious and juicy chicken dishes around.
+             Our secret blend of herbs and spices makes our chicken one of a kind, and we offer a variety of menu items to satisfy 
+             everyone's taste buds.</p>
+      </section>
+      <section>
+
+        <h2>Our Menu</h2>
+
+        <table id="tb" border="1px">
+            <tr>
+                <td> <a href="https://ibb.co/j4Pv0gv">
+                    <img height="450px" width="500px" src="https://i.ibb.co/LpXzjnz/Fried-Chicken-4-1.jpg" 
+                    alt="Fried-Chicken-4-1" border="0"></a>
+                    <h3>Fried Chicken</h3><p>Our signature dish, made with our secret blend of herbs and spices.</p> </td>
+                <td><a href="https://imgbb.com/">
+                    <img   height="450px" width="500px" src="https://i.ibb.co/RCgYnzc/download.jpg" alt="download" border="0"></a>
+                    <h3>Grilled Chicken</h3><p>Healthy and delicious, our grilled chicken is perfect for a lighter meal.</p</td>
+                <td><a href="https://ibb.co/fGsDT5w">
+                    <img height="450px" width="500px" src="https://i.ibb.co/qFvJ2fQ/images.jpg" alt="images" border="0"></a>
+                    <h3>Chicken Sandwich</h3><p>Our classic chicken sandwich, served 
+                        on a soft bun with all your favorite toppings.</p></td>
+            </tr>
+        </table>
+        
+
+      </section>
+      <section>
+        <h2>Our Locations</h2>
+        <ul>
+          <li>
+            <img height="230px" width="100%" src="https://i.ibb.co/0VTDWh4/images-1.jpg" alt="images-1" border="0"></a>
+            <p>THAVHANI MALL <br> thohoyandou</p></li>
+          <li>
+        <img height="270px" width="100%" src="https://i.ibb.co/DtjHh2x/Mvusuludzo-Mall-Thohoyandou-panoramio.jpg"
+         alt="Mvusuludzo-Mall-Thohoyandou-panoramio" border="0"></a>
+            <p> MVUSOLUDZO SPAR <br> THOHOYANDOU</p></li>
+          
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Chicken Lovers Restaurant. All rights reserved.</p>
+    </footer>
+  </body>
+<center>
+<p1><b> YOU CAN BE ABLE TO REVIEW WHAT YOU WANT VIA THSI WEBSITE <b></p1>
+<h1>WHOLE CHICKEN</h1>
+
+<div class="menubar">
+    <div id="imgbar">
+        <img src="https://i.ibb.co/b6D0RjL/108562270-simple-list-menu-icon-on-transparent-background.jpg" />
+        <h3>Htech2</h3>
+        <p>my_email:zaczach25@gmail</p>
+    </div>
+    <br />
+    <button id="btn" onclick="closemenu()">
+        <i class="fas fa-undo"></i>
+        Back
+    </button>
+    <button id="btn">
+        <i class="fas fa-user-circle"></i>
+        Dashboard
+    </button>
+    <button id="btn">
+        <i class="fas fa-cog"></i>
+        Settings
+    </button>
+    <button id="btn">
+        <i class="fas fa-sign-out-alt"></i>
+        Log Out
+    </button>
+    <div id="menufooter">
+        HTECH2 Codes &copy;, All Rights Reserved
+    </div>
+</div>
+<div class="head">
+    <button id="menu" onclick="menu()"><i class="fas fa-bars"></i></button>
+ 
+</div>
+
+<style>
+    h1 span{
+    border:3px dashed black;
+    border-radius: 10px;
+    background-color: #dbe0e6;
+    padding-top:1px;
+    }
+ 
+    @keyframes bgcolor {
+        0% {
+            background-color: #45a3e5
+        }
+    
+        30% {
+            background-color: #66bf39
+        }
+    
+        60% {
+            background-color: #bfcc30
+        }
+    
+        90% {
+            background-color: rgb(108, 168, 169)
+        }
+    
+        100% {
+            background-color: #864cbf
+        }
+        130%{
+            background-color: #4ed3b0
+        }
+        160%{
+            background-color: #ea8f5b
+        }
+        190%{
+            background-color: #f46a58
+        }
+        200%{
+            background-color: #6be059
+        }
+    }
+    
+    body {
+        -webkit-animation: bgcolor 20s infinite;
+        animation: bgcolor 10s infinite;
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+    }
+    p{
+        color: rgb(249, 249, 250);
+    }
+    #sec{
+        margin: auto;
+    }
+    #tb{
+        height: auto;
+    }
+
+    
+    .menubar{
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        
+        left: -50%;
+        top: 0;
+        
+        background: #5B5B5B;
+        outline: none;
+        color: white;
+        z-index:1;
+        
+        text-align: center;
+        
+        transition: 0.5s;
+    }
+    .menubar #back i{
+   
+        padding: 0;
+        margin: 0;
+        position: relative ;
+        width: 10px;
+        height: 10px;
+    }
+    
+    .menubar #imgbar img{
+        width: 100px;
+        height: 100px;  
+        padding: 50px;
+        
+        left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+        border-radius: 50%;
+        
+        background: none;
+        
+        transition: 0.5s;
+    }
+    .menubar #imgbar img:hover{
+        transform: scale(1.3);
+        left: -5%;
+    }
+    .menubar #imgbar{
+        background: #6f748d;
+    }
+    .menubar #imgbar h3{
+        padding: 3px 30px;
+        background: none;
+    }
+    .menubar #imgbar p{
+        padding: 2px 10px;
+        font-size: 13px;
+        background: none;
+    }
+    .active{
+        left:0;
+    }
+    .menubar button{
+        width: 100%;
+        padding: 15px;
+        
+        background: #5B5B5B;
+        outline: none;
+        border:0;
+        border-bottom: 4px solid #5B5B5B;
+        
+        color: #f1f1f1;
+        font-size: 20px;
+        
+        transition: 0.5s;
+    }
+    
+    .menubar button:hover{
+        background: #4A4A4A;
+        border-bottom: 4px solid #6C6C6C;
+    }
+    
+    .menubar #menufooter{
+        font-size: 9px;
+        color: #fff6;
+        background:none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    
+    .head{
+        background: #20334B;
+        padding: 30px;
+        width: 100%;
+        color: white;
+        z-index: -1;
+        
+        transition: 0.5s;
+    }
+    
+    .head button i{
+        padding: 20px;
+        width: 30px;
+        height: 30px;
+        color: white;
+        margin: 0;
+        left: 0;
+        top: 0;
+        position: absolute;
+        font-size: 24px;
+        
+        outline: none;
+        background: #20334B;
+        border: none;
+    }
+    
+    .head p{
+        background: none;
+        width: 65%;
+        left: 50%;
+        top: 25px;
+        transform: translateX(-40%);
+        position: absolute ;
+        font-weight: bold;
+    }
+    
+    .onactive{
+        filter: blur(1px);
+        position: absolute;
+        z-index:0;
+    }
+    
+    .menubar i{
+        background: none;
+    }
+    *{
+        margin: 0px;
+    }
+</style>
+
+<script>
+    
+const menu = () => {
+    let menubar = document.getElementsByClassName("menubar");
+    menubar[0].className += " active";
+    let addblur = document.getElementsByClassName("head");
+    addblur[0].className += " onactive";
+}
+
+const closemenu = () => {
+    let menubar = document.getElementsByClassName ("menubar");
+    menubar[0].className = "menubar";
+    let removeblur = document.getElementsByClassName ("head");
+    removeblur[0].className = "head";
+}
+</script>
+
+</html>

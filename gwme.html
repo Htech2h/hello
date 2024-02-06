@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h1>Tic Tac Toe</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <button id="r1c1" class="btn" onclick="main('r1c1')" ></button>
+      <button id="r1c2" class="btn" onclick="main('r1c2')" ></button>
+      <button id="r1c3" class="btn" onclick="main('r1c3')" ></button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <button id="r2c1" class="btn" onclick="main('r2c1')" ></button>
+      <button id="r2c2" class="btn" onclick="main('r2c2')" ></button>
+      <button id="r2c3" class="btn" onclick="main('r2c3')" ></button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <button id="r3c1" class="btn" onclick="main('r3c1')" ></button>
+      <button id="r3c2" class="btn" onclick="main('r3c2')" ></button>
+      <button id="r3c3" class="btn" onclick="main('r3c3')" ></button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 id='player'></h1>
+  </div>
+
+  <div class="row">
+      <div class="container">
+        <button id="again" class="btn btn-success">Htech2</button>
+      </div>
+  </div>
+  Short king
+<script>
+
+document.getElementById('again').addEventListener ("click", function() {
+  r1c1 = document.getElementById('r1c1')
+  r1c2 = document.getElementById('r1c2')
+  r1c3 = document.getElementById('r1c3')
+  r2c1 = document.getElementById('r2c1')
+  r2c2 = document.getElementById('r2c2')
+  r2c3 = document.getElementById('r2c3')
+  r3c1 = document.getElementById('r3c1')
+  r3c2 = document.getElementById('r3c2')
+  r3c3 = document.getElementById('r3c3')
+  player = document.getElementById('player')
+  player.innerHTML = ""
+  r1c1.innerHTML = ""
+  r1c2.innerHTML = ""
+  r1c3.innerHTML = ""
+  r2c1.innerHTML = ""
+  r2c2.innerHTML = ""
+  r2c3.innerHTML = ""
+  r3c1.innerHTML = ""
+  r3c2.innerHTML = ""
+  r3c3.innerHTML = ""
+  r1c1.disabled = false
+  r1c2.disabled = false
+  r1c3.disabled = false
+  r2c1.disabled = false
+  r2c2.disabled = false
+  r2c3.disabled = false
+  r3c1.disabled = false
+  r3c2.disabled = false
+  r3c3.disabled = false
+});
+
+function determine_turn() {
+  r1c1 = document.getElementById('r1c1').innerHTML
+  r1c2 = document.getElementById('r1c2').innerHTML
+  r1c3 = document.getElementById('r1c3').innerHTML
+  r2c1 = document.getElementById('r2c1').innerHTML
+  r2c2 = document.getElementById('r2c2').innerHTML
+  r2c3 = document.getElementById('r2c3').innerHTML
+  r3c1 = document.getElementById('r3c1').innerHTML
+  r3c2 = document.getElementById('r3c2').innerHTML
+  r3c3 = document.getElementById('r3c3').innerHTML
+  player = document.getElementById('player').innerHTML
+  var turns_done = 1;
+  if (r1c1 === 'X' || r1c1 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r1c2 === 'X' || r1c2 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r1c3 === 'X' || r1c3 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r2c1 === 'X' || r2c1 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r2c2 === 'X' || r2c2 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r2c3 === 'X' || r2c3 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r3c1 === 'X' || r3c1 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r3c2 === 'X' || r3c2 === 'O') {
+    turns_done = turns_done + 1
+  }
+  if (r3c3 === 'X' || r3c3 === 'O') {
+    turns_done = turns_done + 1
+  }
+  return turns_done
+}
+
+function check(player) {
+  r1c1 = document.getElementById('r1c1').innerHTML
+  r1c2 = document.getElementById('r1c2').innerHTML
+  r1c3 = document.getElementById('r1c3').innerHTML
+  r2c1 = document.getElementById('r2c1').innerHTML
+  r2c2 = document.getElementById('r2c2').innerHTML
+  r2c3 = document.getElementById('r2c3').innerHTML
+  r3c1 = document.getElementById('r3c1').innerHTML
+  r3c2 = document.getElementById('r3c2').innerHTML
+  r3c3 = document.getElementById('r3c3').innerHTML
+  if (r1c1 === player && r1c2 === player && r1c3 === player) {
+    player_won = true
+  }
+  else if (r2c1 === player && r2c2 === player && r2c3 === player) {
+    player_won = true
+  }
+  else if (r3c1 === player && r3c2 === player && r3c3 === player) {
+    player_won = true
+  }
+  else if (r1c1 === player && r2c1 === player && r3c1 === player) {
+    player_won = true
+  }
+  else if (r1c2 === player && r2c2 === player && r3c2 === player) {
+    player_won = true
+  }
+  else if (r1c3 === player && r2c3 === player && r3c3 === player) {
+    player_won = true
+  }
+  else if (r1c1 === player && r2c2 === player && r3c3 === player) {
+    player_won = true
+  }
+  else if (r1c3 === player && r2c2 === player && r3c1 === player) {
+    player_won = true
+  }
+  else {
+    player_won = false
+  }
+  return player_won
+}
+
+function main(id) {
+  var btn = document.getElementsByClassName('btn')
+  var button1 = document.getElementById(id);
+  var player = document.getElementById('player');
+  var again = document.getElementById('again')
+  again.disabled = true
+  player1 = 'X'
+  player2 = 'O'
+  turn = determine_turn()
+  button1.innerHTML = player1;
+  button1.disabled = true;
+  player_won = check('X')
+  if (player_won == true) {
+    for (r=1;r<=3;r++) {
+      for (c=1;c<=3;c++) {
+        idf = 'r' + r + 'c' + c
+        document.getElementById(idf).disabled = true
+        player.innerHTML = 'player x won'
+        again.disabled = false
+      }
+    }
+  }
+  else if (turn != 9) {
+    window.setTimeout(comp,500);
+  }
+  else if (turn == 9) {
+    player.innerHTML = 'No winner mr htech'
+    again.disabled = false
+  }
+}
+
+function clear() {
+  r1c1 = document.getElementById('r1c1').innerHTML
+  r1c2 = document.getElementById('r1c2').innerHTML
+  r1c3 = document.getElementById('r1c3').innerHTML
+  r2c1 = document.getElementById('r2c1').innerHTML
+  r2c2 = document.getElementById('r2c2').innerHTML
+  r2c3 = document.getElementById('r2c3').innerHTML
+  r3c1 = document.getElementById('r3c1').innerHTML
+  r3c2 = document.getElementById('r3c2').innerHTML
+  r3c3 = document.getElementById('r3c3').innerHTML
+  var r1c1 = "";
+}
+
+function comp() {
+  r1c1 = document.getElementById('r1c1')
+  r1c2 = document.getElementById('r1c2')
+  r1c3 = document.getElementById('r1c3')
+  r2c1 = document.getElementById('r2c1')
+  r2c2 = document.getElementById('r2c2')
+  r2c3 = document.getElementById('r2c3')
+  r3c1 = document.getElementById('r3c1')
+  r3c2 = document.getElementById('r3c2')
+  r3c3 = document.getElementById('r3c3')
+  var player = document.getElementById('player');
+  var again = document.getElementById('again');
+  if (r1c1.innerHTML === 'O' && r1c2.innerHTML ==='O' && r1c3.innerHTML !=='X') {
+    r1c3.innerHTML = player2; r1c3.disabled = true;
+  }
+  else if (r2c1.innerHTML === 'O' && r2c2.innerHTML ==='O' && r2c3.innerHTML !=='X') {
+    r2c3.innerHTML = player2; r2c3.disabled = true;
+  }
+  else if (r3c1.innerHTML === 'O' && r3c2.innerHTML ==='O' && r3c3.innerHTML !=='X') {
+    r3c3.innerHTML = player2; r3c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'O' && r1c3.innerHTML ==='O' && r1c2.innerHTML !=='X') {
+    r1c2.innerHTML = player2; r1c2.disabled = true;
+  }
+  else if (r2c1.innerHTML === 'O' && r2c3.innerHTML ==='O' && r2c2.innerHTML !=='X') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else if (r3c1.innerHTML === 'O' && r3c3.innerHTML ==='O' && r3c2.innerHTML !=='X') {
+    r3c2.innerHTML = player2; r3c2.disabled = true;
+  }
+  else if (r1c2.innerHTML === 'O' && r1c3.innerHTML ==='O' && r1c1.innerHTML !=='X') {
+    r1c1.innerHTML = player2; r1c1.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'O' && r2c3.innerHTML ==='O' && r2c1.innerHTML !=='X') {
+    r2c1.innerHTML = player2; r2c1.disabled = true;
+  }
+  else if (r3c2.innerHTML === 'O' && r3c3.innerHTML ==='O' && r3c1.innerHTML !=='X') {
+    r3c1.innerHTML = player2; r3c1.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'O' && r2c1.innerHTML ==='O' && r3c1.innerHTML !=='X') {
+    r3c1.innerHTML = player2; r3c1.disabled = true;
+  }
+  else if (r1c2.innerHTML === 'O' && r2c2.innerHTML ==='O' && r3c2.innerHTML !=='X') {
+    r3c2.innerHTML = player2; r3c2.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'O' && r2c3.innerHTML ==='O' && r3c3.innerHTML !=='X') {
+    r3c3.innerHTML = player2; r3c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'O' && r3c1.innerHTML ==='O' && r2c1.innerHTML !=='X') {
+    r2c1.innerHTML = player2; r2c1.disabled = true;
+  }
+  else if (r1c2.innerHTML === 'O' && r3c2.innerHTML ==='O' && r2c2.innerHTML !=='X') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'O' && r3c3.innerHTML ==='O' && r2c3.innerHTML !=='X') {
+    r2c3.innerHTML = player2; r2c3.disabled = true;
+  }
+  else if (r2c1.innerHTML === 'O' && r3c1.innerHTML ==='O' && r1c1.innerHTML !=='X') {
+    r1c1.innerHTML = player2; r1c1.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'O' && r3c2.innerHTML ==='O' && r1c2.innerHTML !=='X') {
+    r1c2.innerHTML = player2; r1c2.disabled = true;
+  }
+  else if (r2c3.innerHTML === 'O' && r3c3.innerHTML ==='O' && r1c3.innerHTML !=='X') {
+    r1c3.innerHTML = player2; r1c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'O' && r2c2.innerHTML ==='O' && r3c3.innerHTML !=='X') {
+    r3c3.innerHTML = player2; r3c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'O' && r3c3.innerHTML ==='O' && r2c2.innerHTML !=='X') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'O' && r3c3.innerHTML ==='O' && r1c1.innerHTML !=='X') {
+    r1c1.innerHTML = player2; r1c1.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'O' && r2c2.innerHTML ==='O' && r3c1.innerHTML !=='X') {
+    r3c1.innerHTML = player2; r3c1.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'O' && r3c1.innerHTML ==='O' && r1c3.innerHTML !=='X') {
+    r1c3.innerHTML = player2; r1c3.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'O' && r3c1.innerHTML ==='O' && r2c2.innerHTML !=='X') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'X' && r1c2.innerHTML ==='X' && r1c3.innerHTML !=='O') {
+    r1c3.innerHTML = player2; r1c3.disabled = true;
+  }
+  else if (r2c1.innerHTML === 'X' && r2c2.innerHTML ==='X' && r2c3.innerHTML !=='O') {
+    r2c3.innerHTML = player2; r2c3.disabled = true;
+  }
+  else if (r3c1.innerHTML === 'X' && r3c2.innerHTML ==='X' && r3c3.innerHTML !=='O') {
+    r3c3.innerHTML = player2; r3c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'X' && r1c3.innerHTML ==='X' && r1c2.innerHTML !=='O') {
+    r1c2.innerHTML = player2; r1c2.disabled = true;
+  }
+  else if (r2c1.innerHTML === 'X' && r2c3.innerHTML ==='X' && r2c2.innerHTML !=='O') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else if (r3c1.innerHTML === 'X' && r3c3.innerHTML ==='X' && r3c2.innerHTML !=='O') {
+    r3c2.innerHTML = player2; r3c2.disabled = true;
+  }
+  else if (r1c2.innerHTML === 'X' && r1c3.innerHTML ==='X' && r1c1.innerHTML !=='O') {
+    r1c1.innerHTML = player2; r1c1.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'X' && r2c3.innerHTML ==='X' && r2c1.innerHTML !=='O') {
+    r2c1.innerHTML = player2; r2c1.disabled = true;
+  }
+  else if (r3c2.innerHTML === 'X' && r3c3.innerHTML ==='X' && r3c1.innerHTML !=='O') {
+    r3c1.innerHTML = player2; r3c1.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'X' && r2c1.innerHTML ==='X' && r3c1.innerHTML !=='O') {
+    r3c1.innerHTML = player2; r3c1.disabled = true;
+  }
+  else if (r1c2.innerHTML === 'X' && r2c2.innerHTML ==='X' && r3c2.innerHTML !=='O') {
+    r3c2.innerHTML = player2; r3c2.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'X' && r2c3.innerHTML ==='X' && r3c3.innerHTML !=='O') {
+    r3c3.innerHTML = player2; r3c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'X' && r3c1.innerHTML ==='X' && r2c1.innerHTML !=='O') {
+    r2c1.innerHTML = player2; r2c1.disabled = true;
+  }
+  else if (r1c2.innerHTML === 'X' && r3c2.innerHTML ==='X' && r2c2.innerHTML !=='O') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'X' && r3c3.innerHTML ==='X' && r2c3.innerHTML !=='O') {
+    r2c3.innerHTML = player2; r2c3.disabled = true;
+  }
+  else if (r2c1.innerHTML === 'X' && r3c1.innerHTML ==='X' && r1c1.innerHTML !=='O') {
+    r1c1.innerHTML = player2; r1c1.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'X' && r3c2.innerHTML ==='X' && r1c2.innerHTML !=='O') {
+    r1c2.innerHTML = player2; r1c2.disabled = true;
+  }
+  else if (r2c3.innerHTML === 'X' && r3c3.innerHTML ==='X' && r1c3.innerHTML !=='O') {
+    r1c3.innerHTML = player2; r1c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'X' && r2c2.innerHTML ==='X' && r3c3.innerHTML !=='O') {
+    r3c3.innerHTML = player2; r3c3.disabled = true;
+  }
+  else if (r1c1.innerHTML === 'X' && r3c3.innerHTML ==='X' && r2c2.innerHTML !=='O') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'X' && r3c3.innerHTML ==='X' && r1c1.innerHTML !=='O') {
+    r1c1.innerHTML = player2; r1c1.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'X' && r2c2.innerHTML ==='X' && r3c1.innerHTML !=='O') {
+    r3c1.innerHTML = player2; r3c1.disabled = true;
+  }
+  else if (r2c2.innerHTML === 'X' && r3c1.innerHTML ==='X' && r1c3.innerHTML !=='O') {
+    r1c3.innerHTML = player2; r1c3.disabled = true;
+  }
+  else if (r1c3.innerHTML === 'X' && r3c1.innerHTML ==='X' && r2c2.innerHTML !=='O') {
+    r2c2.innerHTML = player2; r2c2.disabled = true;
+  }
+  else{
+    for(i=1;i<=500;i++) {
+      row = Math.floor((Math.random() * 3) + 1);
+      col = Math.floor((Math.random() * 3) + 1);
+      id2 = 'r' + row + 'c' + col;
+      var button2 = document.getElementById(id2);
+      if (button2.innerHTML != 'O' && button2.innerHTML != 'X') {
+        button2.innerHTML = player2;
+        button2.disabled = true
+        break
+      }
+      turn = determine_turn()
+      if (turn === 9) {
+        break
+      }
+    }
+  }
+  turn = determine_turn()
+  player_won = check('O')
+  if (player_won == true) {
+    for (r=1;r<=3;r++) {
+      for (c=1;c<=3;c++) {
+        idf = 'r' + r + 'c' + c
+        document.getElementById(idf).disabled = true
+        player.innerHTML = 'player zero won'
+        again.disabled = false
+      }
+    }
+  }
+}
+
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>/* Created by h */
+/* Created by Htech */
+button {
+  height:100px;
+  margin: 5px;
+  width:100px;
+  text-decoration: none;
+  color: black;
+}
+
+.btn {
+  font-size: 4rem;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#again {
+  height:auto;
+  margin: 5px;
+  padding-bottom: 5px;
+  width:auto;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  font-size: 1.5rem;
+}
+</style>
+
+</body>
+</html>

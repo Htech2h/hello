@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Connect the Dots</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="game-container">
+      <canvas id="canvas"></canvas>
+    </div>
+    <script src="script.js">
+        const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// Set canvas width and height to match the viewport
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Initialize game variables
+let dots = [];
+let lines = [];
+let gameOver = false;
+
+// Add event listener to canvas to detect clicks
+canvas.addEventListener('click', handleClick);
+
+// Main game loop
+function loop() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the glowing circle
+  ctx.beginPath();
+  ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 4, 0, 2 * Math.PI);
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+  ctx.shadowBlur = 50;
+  ctx.shadowColor = 'white';
+  ctx.fill();
+  ctx.closePath();
+
+  // Draw the dots
+  dots.forEach(dot => dot.draw());
+
+  // Draw the lines
+  lines.forEach(line => line.draw());
+
+  // Check for game over
+  if (gameOver) {
+    ctx.font = '48px Arial';
+    ctx.fillStyle = 'red';
+    ctx.textAlign = 'center';
+    ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2);
+  } else if (dots.length === 0) {
+    ctx.font = '48px Arial';
+    ctx.fillStyle = 'green';
+    ctx.textAlign = 'center';
+    ctx.fillText('You Win!', canvas.width / 2, canvas.height / 2);
+  } else {
+    requestAnimationFrame(loop);
+  }
+}
+
+// Dot class
+class Dot {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.closePath();
+  }
+}
+
+// Line class
+class Line {
+  constructor(dot1, dot2) {
+    this.dot1 = dot1;
+    this.dot2 = dot2;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.moveTo(this.dot1.x, this.dot1.y);
+    ctx.lineTo(this.dot2.x, this.dot2.y);
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+  }
+}
+
+// Function to handle clicks on canvas
+function handleClick(event) {
+  if (!gameOver) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+  }}
+    // Find the closest dot to the click
+    let
+
+    </script>
+    <style>
+        body {
+  margin: 0;
+  padding: 0;
+}
+
+        .game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+        canvas {
+  border: 1px solid black;
+}
+
+    </style>
+  </body>
+</html>

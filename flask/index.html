@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    
+    <!-- this is a comment  id="signinBtn"-->
+    <h1  align = "center"><span>login page</span></h1> <br>
+    <nav><ul>
+        <li><a href="#">HOME</a></a></li>
+    </ul></nav>
+    <div align = "center">
+    <form action="home.html"  method="put">
+
+        <label>Username:</label>
+        <input type="text" name="username" required><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        <input type="submit" value="Login">
+     
+    </form>
+    </div>
+    <hr width="50%">
+
+    <p align = "center"><b>this is</b> Htech2</p>
+
+   <div  id="container"> <div id="box"><img src="C:\Users\20311\Documents\IMG_20230420_124714.jpg" height="250px" width="250px"  alt="" /> </div> 
+   
+   <br> <hr>
+   <div align="left" class="list"><ul>
+        <li><b>software eng</b></li>
+            <p>very good</p>
+        <li><b>ML eng</b></li>
+            <p>decent</p>
+        <li><b>python</b></li>
+            <p>advanced</p>
+    </ul> </div>    <br>
+
+  
+<a href="http://www.sololearn.com" target="_blank">learn to code</a>
+
+<style>
+h1 span {
+border: 4px dashed #20bcd5;
+padding: 10px;
+position: fixed;
+background-color: beige;
+    }
+p{
+    text-decoration: underline;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+    text-transform: lowercase;
+    color: azure;
+    text-shadow: 2px 3px 4px azure,
+    2px 1px 2px black;
+ }
+ body{
+    background-color: azure;
+ }
+ #container{
+    width: 700px;
+    height: 400px;
+    position: relative;
+    background-color: cadetblue;
+    margin: auto;
+    
+ }
+ #box{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    border: 1px solid greenyellow;
+ }
+
+</style>
+
+<!--this line breaks css & javascript-->
+<script>
+var pos = 0;
+var box = document.getElementById("box");
+var t = setInterval(move,10);
+
+function move(){
+    if (pos > 450){
+        clearInterval(t);
+    } 
+    else{
+     pos+=1;
+     box.style.left = pos+"px";
+    };
+}
+
+</script> 
+</body>
+</html>
